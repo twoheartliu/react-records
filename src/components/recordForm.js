@@ -28,7 +28,6 @@ class RecordForm extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault()
-    console.log('submit')
     const data = {
       date: this.state.date,
       title: this.state.title,
@@ -36,7 +35,7 @@ class RecordForm extends Component {
     }
     RecordAPI.create(data).then(
       response => {
-        this.props.addRecord(response.data)
+        this.props.handleNewRecord(response.data)
         this.setState({
           date: '',
           title: '',
